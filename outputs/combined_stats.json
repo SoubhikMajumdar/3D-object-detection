@@ -1,0 +1,53 @@
+{
+  "kitti": {
+    "detections": 10,
+    "mean_score": 0.7922263324260712,
+    "score_std": 0.1685958339531911,
+    "max_score": 0.9750319123268127,
+    "min_score": 0.441741943359375,
+    "class_counts": {
+      "Car": 10
+    },
+    "runtime_s": 9.5491058,
+    "top_classes": [
+      [
+        "Car",
+        10
+      ]
+    ]
+  },
+  "nuscenes": {
+    "detections": 365,
+    "mean_score": 0.1265643775565167,
+    "score_std": 0.09538090043502319,
+    "max_score": 0.7109364867210388,
+    "min_score": 0.05018952488899231,
+    "class_counts": {
+      "car": 74,
+      "truck": 28,
+      "construction_vehicle": 10,
+      "bus": 10,
+      "trailer": 19,
+      "barrier": 5,
+      "motorcycle": 7,
+      "bicycle": 95,
+      "pedestrian": 29,
+      "traffic_cone": 88
+    },
+    "runtime_s": 11.4550072,
+    "top_classes": [
+      [
+        "bicycle",
+        95
+      ],
+      [
+        "traffic_cone",
+        88
+      ],
+      [
+        "car",
+        74
+      ]
+    ]
+  }
+}

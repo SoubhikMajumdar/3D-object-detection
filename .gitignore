@@ -1,0 +1,31 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.log
+
+# Virtual environments
+.venv/
+env/
+venv/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Large/model artifacts
+external/
+checkpoints/
+outputs/*.ply
+outputs/*.pcd
+outputs/*.bin
+
+# Temporary data caches
+data/*/velodyne/
+data/*/image_*/
+data/*/label_*/
+data/*/calib/
+
+# MoviePy cache files
+*.mp4.temp
