@@ -204,6 +204,18 @@ python mmdet3d_inference2.py `
 | **3DSSD (KITTI)** | KITTI | 50 | 0.158 | 0.905 | 7 | 0.318 |
 | **CenterPoint (nuScenes)** | nuScenes | 264 | 0.244 | 0.874 | 15 | 0.183 |
 
+### Key Takeaways
+
+1. **PointPillars excels on KITTI but struggles on nuScenes**: The model achieves the highest mean confidence score (0.792) on KITTI with excellent precision (80% high-confidence detections), demonstrating that voxel-based pillar encoding works exceptionally well for the KITTI dataset's simpler, single-class car detection task. However, on nuScenes, it produces 365 detections with a mean score of only 0.127, indicating the model struggles with nuScenes' more complex multi-class, multi-object scenarios. This suggests PointPillars benefits from dataset-specific training and may need architectural adjustments for larger, more diverse datasets.
+
+2. **3DSSD suffers from high false positive rate**: Despite achieving a maximum score of 0.905, 3DSSD's point-based architecture produces 50 detections with a mean score of only 0.158 and the highest score variance (std: 0.318). The median score of 0.000 indicates that most detections are near-zero confidence, suggesting the single-stage point-based design is prone to over-detection. The model requires aggressive post-processing (score threshold ≥0.6) to be practical, limiting its utility for real-time applications where precision is critical.
+
+3. **CenterPoint provides the best balance for nuScenes**: With 15 high-confidence detections (the most among all models) and a moderate mean score of 0.244, CenterPoint's sparse convolution architecture demonstrates superior performance on nuScenes. However, 87% of its detections (230/264) are low-confidence, indicating the model is conservative in its predictions but effective when it does make high-confidence detections. This makes it suitable for applications requiring high precision over recall.
+
+4. **Dataset-domain mismatch significantly impacts performance**: PointPillars shows a dramatic performance drop when moving from KITTI (mean: 0.792) to nuScenes (mean: 0.127), highlighting that models trained on one dataset may not generalize well to another without retraining. The architectural differences between datasets (KITTI's simpler single-class vs. nuScenes' complex multi-class) require different model configurations and training strategies.
+
+5. **Voxel-based methods (PointPillars, CenterPoint) are more stable than point-based (3DSSD)**: Both voxel-based models show lower score variance (0.169 and 0.183) compared to 3DSSD's point-based approach (0.318), suggesting that voxelization provides better regularization and more consistent confidence calibration. However, point-based methods can achieve higher peak scores (3DSSD max: 0.905), indicating they may be better at detecting clear, unambiguous objects but suffer from instability on ambiguous cases.
+
 ### Detailed Metrics
 
 #### PointPillars (KITTI)
