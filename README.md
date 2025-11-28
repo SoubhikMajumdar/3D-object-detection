@@ -243,7 +243,12 @@ python scripts/open3d_view_saved_ply.py --dir outputs\kitti_pointpillars --basen
 A short stitched video (`outputs/detections_demo.mp4`) is produced with MoviePy:
 
 ```powershell
-python -c "from moviepy import ImageClip, concatenate_videoclips; import os; frames=['outputs/kitti_pointpillars/000008_2d_vis.png','outputs/kitti_pointpillars/000008_open3d.png','outputs/nuscenes_pointpillars/sample_open3d.png']; clips=[ImageClip(f).with_duration(3) for f in frames if os.path.exists(f)]; concatenate_videoclips(clips, method='compose').write_videofile('outputs/detections_demo.mp4', fps=24, codec='libx264', audio=False)"
+python -c "from moviepy import ImageClip, concatenate_videoclips; import os; frames=['outputs/kitti_pointpillars/000008_2d_vis.png','outputs/kitti_pointpillars/000008_open3d.png','outputs/3dssd/000008_2d_vis.png','outputs/3dssd/000008_open3d.png','outputs/kitti_pointpillars_3class/000008_2d_vis.png','outputs/nuscenes_pointpillars/sample_open3d.png']; clips=[ImageClip(f).with_duration(3) for f in frames if os.path.exists(f)]; concatenate_videoclips(clips, method='compose').write_videofile('outputs/detections_demo.mp4', fps=24, codec='libx264', audio=False)"
+```
+
+Alternatively, use the helper script:
+```powershell
+python create_demo.py
 ```
 
 Inline preview (GIF):
