@@ -347,10 +347,3 @@ See `REPORT.md` for comprehensive analysis and results.
   - Visualizations and screenshots
   - Conclusions and recommendations
 
-## Next Steps
-
-- **Batch Processing:** Process multiple frames by setting `--frame-number -1` for KITTI or looping over nuScenes files
-- **Evaluation Metrics:** Integrate AP/mAP calculations by comparing predictions with ground-truth labels
-- **Additional Models:** Try other MMDetection3D configs (SECOND, Part-A2, etc.) on a GPU-enabled setup
-- **Fine-tuning:** Use the training scripts in `external/mmdetection3d/tools/train.py` for custom datasets
-- **Performance Profiling:** Enable inference time measurements in `compare_models_metrics.py` for FPS analysis
